@@ -1,103 +1,122 @@
 # Modern Chat App
 
-A real-time chat application built using **Node.js**, **Express**, and **Socket.IO**. This app supports live messaging, user reactions, read receipts, and dynamic user management. The frontend is styled with CSS and provides a modern, responsive chat interface.
+<div align="center">
+
+<a href="https://nodejs.org/" target="_blank">
+  <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node-dot-js&logoColor=white" alt="Node.js" />
+</a>
+<a href="https://expressjs.com/" target="_blank">
+  <img src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express" />
+</a>
+<a href="https://socket.io/" target="_blank">
+  <img src="https://img.shields.io/badge/Socket.io-010101?style=for-the-badge&logo=socket.io&logoColor=white" alt="Socket.IO" />
+</a>
+<a href="https://cloud.google.com/appengine" target="_blank">
+  <img src="https://img.shields.io/badge/Google%20App%20Engine-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white" alt="Google App Engine" />
+</a>
+<a href="https://choosealicense.com/licenses/mit/" target="_blank">
+  <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge&logo=opensourceinitiative&logoColor=black" alt="MIT License" />
+</a>
+<a href="https://www.avijitroy.net/" target="_blank">
+  <img src="https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Live Demo" />
+</a>
+
+
+<br/><br/>
+
+<!--
+Replace with your own screenshot URL (hosted on imgur or your domain):
+<img src="https://i.imgur.com/YOUR_SCREENSHOT.png" alt="Modern Chat App Screenshot" width="80%" style="border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,0.08);"/>
+-->
+
+</div>
+
+A real-time chat application built with **Node.js**, **Express**, and **Socket.IO**. Supports instant messaging, emoji reactions, read receipts, typing indicators, and more — all in a clean, modern interface that works great on both desktop and mobile.
 
 ---
 
 ## 🚀 Features
 
-* Real-time chat messaging (via Socket.IO)
-* Emoji reactions to messages
-* Read receipts
-* Typing indicators
-* User join/leave notifications
-* Audio notifications (optional toggle)
-* Tab title and favicon notifications for new messages
-* Modern and responsive UI (optimized for desktop & mobile)
+* **Real-time Messaging**: Powered by Socket.IO
+* **Emoji Reactions**: React to any message
+* **Read Receipts**: Know who read your messages
+* **Live Presence**: Typing indicators, user join/leave, and online users
+* **Smart Notifications**: Audio, dynamic favicon, and tab title alerts
+* **Fully Responsive UI**: Looks perfect on desktop, tablet, or mobile
 
 ---
 
-## 📂 Project Structure
+## 🛠️ Installation & Local Development
 
-```
-chat-app/
-├── app.js                # Main server script
-├── package.json          # Dependencies and scripts
-├── app.yaml              # Google Cloud App Engine config (optional)
-├── public/               # Public static files
-│   ├── index.html        # Login and main chat interface
-│   ├── chat.html         # (Alternate chat UI, legacy)
-│   ├── client.js         # Frontend logic with Socket.IO
-│   ├── style.css         # Styling for the app
-│   ├── favicon.png       # Default favicon
-│   ├── favicon-alert.png # Alert favicon (new messages)
-│   └── notification.mp3  # Audio notification sound
-```
+### Prerequisites
 
----
+* Node.js (v20+ recommended)
+* NPM (comes with Node.js)
 
-## 🔧 Installation & Running Locally
+**Setup:**
 
-### Prerequisites:
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
+    ```
 
-* Node.js (v14+ recommended)
+2.  **Navigate to the project directory:**
+    ```bash
+    cd your-repo-name
+    ```
 
-### Setup:
+3.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
 
-1. Clone the repository or copy the folder.
+4.  **Run the application:**
+    ```bash
+    node app.js
+    ```
 
-2. Navigate to the project directory:
-
-   ```bash
-   cd D:\Coding\chat-app\chat
-   ```
-
-3. Install dependencies:
-
-   ```bash
-   npm install
-   ```
-
-4. Run the application:
-
-   ```bash
-   node app.js
-   ```
-
-   Or, if you add a `start` script to `package.json`, you can run:
-
-   ```bash
-   npm start
-   ```
-
-5. Open your browser at:
-
-   ```
-   http://localhost:8080
-   ```
+5.  **Open your browser** and navigate to `http://localhost:8080`.
 
 ---
 
-## ⚙️ Environment Variables
+## ⚙️ Configuration
 
-* `PORT`: Optional. Set a custom port. Defaults to **8080**.
+| Variable | Description | Default |
+| -------- | ----------- | ------- |
+| `PORT`   | Server port | 8080    |
+
+   *(Use `app.js` to change the default port.)
 
 ---
 
 ## 🌐 Deployment
 
-This app was originally deployed on **Google Cloud App Engine Standard Environment**.
+This app is **production-ready for Google Cloud App Engine** (see `app.yaml`), but you can deploy anywhere that supports Node.js.
 
-You can deploy it elsewhere by simply running it on a Node.js server. Static files are served from the `/public` directory.
+**To deploy on Google Cloud:**
+
+1.  **Authenticate with gcloud:**
+    ```bash
+    gcloud auth login
+    gcloud config set project YOUR_PROJECT_ID
+    ```
+
+2.  **Deploy the app:**
+    ```bash
+    gcloud app deploy
+    ```
+
+The configuration is managed by the `app.yaml` file. You can also deploy this to any other service that supports Node.js.
 
 ---
 
 ## ✨ Credits
 
-Developed by **Avijit Roy**.
+Developed by [Avijit Roy](https://www.linkedin.com/in/HeyAvijitRoy/) .
 
 ---
 
 ## 📜 License
 
-ISC License. See `package.json` for details.
+This project is licensed under the [MIT License](./LICENSE). See [`LICENSE`](./LICENSE) for details.
+

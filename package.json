@@ -7,7 +7,7 @@
     "test": "mocha"
   },
   "author": "Avijit Roy",
-  "license": "ISC",
+  "license": "MIT",
   "keywords": [],
   "dependencies": {
     "express": "^4.21.1",
