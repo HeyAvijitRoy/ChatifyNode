@@ -57,7 +57,7 @@ A real-time chat application built with **Node.js**, **Express**, and **Socket.I
 
 2.  **Navigate to the project directory:**
     ```bash
-    cd your-repo-name
+    cd ChatifyNode
     ```
 
 3.  **Install dependencies:**
