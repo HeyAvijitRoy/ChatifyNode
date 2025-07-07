@@ -1,4 +1,4 @@
-# Modern Chat App
+# ChatifyNode: Modern Chat App
 
 <div align="center">
 
@@ -26,8 +26,6 @@
 A real-time chat application built with **Node.js**, **Express**, and **Socket.IO**. Supports instant messaging, emoji reactions, read receipts, typing indicators, and more — all in a clean, modern interface that works great on both desktop and mobile.
 
 ---
-
-## 🚀 Features
 
 ## 🚀 Features
 
