@@ -21,8 +21,6 @@
   <img src="https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Live Demo" />
 </a>
 
-
-
 </div>
 
 A real-time chat application built with **Node.js**, **Express**, and **Socket.IO**. Supports instant messaging, emoji reactions, read receipts, typing indicators, and more — all in a clean, modern interface that works great on both desktop and mobile.
@@ -31,12 +29,17 @@ A real-time chat application built with **Node.js**, **Express**, and **Socket.I
 
 ## 🚀 Features
 
-* **Real-time Messaging**: Powered by Socket.IO
-* **Emoji Reactions**: React to any message
-* **Read Receipts**: Know who read your messages
-* **Live Presence**: Typing indicators, user join/leave, and online users
-* **Smart Notifications**: Audio, dynamic favicon, and tab title alerts
-* **Fully Responsive UI**: Looks perfect on desktop, tablet, or mobile
+## 🚀 Features
+
+* **Community Group Chat:** Join instantly, chat with everyone in the room—perfect for public communities, events, or temporary teams.
+* **No History Saved:** All messages are ephemeral—once the page is refreshed or everyone leaves, chat is gone forever.
+* **Real-time Messaging:** Instant message delivery using Socket.IO for true live chat.
+* **Emoji Reactions:** React to any message with expressive emojis.
+* **Read Receipts:** See exactly who has read your messages.
+* **Live Presence & Typing Indicators:** Know who is online and when someone is typing.
+* **Notifications:** Audio cues, favicon blinks, and dynamic tab titles when new messages arrive.
+* **Mobile-First & Responsive:** Smooth experience on any device—desktop, tablet, or mobile.
+* **Modern, Minimal UI:** Clean design focused on user experience.
 
 ---
 
@@ -80,6 +83,10 @@ A real-time chat application built with **Node.js**, **Express**, and **Socket.I
 | `PORT`   | Server port | 8080    |
 
    *(Use `app.js` to change the default port.)
+
+### Max User Count  
+Change the `MAX_USERS` variable in `app.js` under `Configuration` to adjust the maximum number of users allowed in the chat at any given time.
+
 
 ---
 
