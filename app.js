@@ -1,5 +1,3 @@
-// app.js
-
 /**
  * Main server file for the chat application.
  * Uses Express for server setup and Socket.io for real-time communication.
@@ -78,15 +76,17 @@ io.on('connection', (socket) => {
 
   // Handle receiving chat messages
   socket.on('chat message', (msg) => {
-    const timestamp = new Date().toLocaleString('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-      hour: 'numeric',
-      minute: 'numeric',
-      second: 'numeric',
-      hour12: true,
-    });
+    // const timestamp = new Date().toLocaleString('en-US', {
+    //   year: 'numeric',
+    //   month: 'short',
+    //   day: 'numeric',
+    //   hour: 'numeric',
+    //   minute: 'numeric',
+    //   second: 'numeric',
+    //   hour12: true,
+    // });
+    const timestamp = new Date().toISOString();
+
 
     // Assign a unique ID to the message
     const messageId = messageCounter++;

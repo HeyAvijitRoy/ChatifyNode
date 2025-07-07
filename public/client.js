@@ -133,7 +133,19 @@ socket.on('chat message', (data) => {
     // Time stamp (shown for sent message)
     const timeElement = document.createElement('div');
     timeElement.classList.add('time-stamp');
-    timeElement.innerText = `[${data.time}]`;
+    // timeElement.innerText = `[${data.time}]`;
+    const localTime = new Date(data.time).toLocaleString([], {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true,
+      timeZoneName: 'short',
+    });
+    timeElement.innerText = `[${localTime}]`;
+    
 
     // Message content (for sent message)
     const messageContent = document.createElement('div');
@@ -175,7 +187,17 @@ socket.on('chat message', (data) => {
     // Time stamp (shown for received message)
     const timeElement = document.createElement('div');
     timeElement.classList.add('time-stamp');
-    timeElement.innerText = `[${data.time}]`;
+    // timeElement.innerText = `[${data.time}]`;
+    const localTime = new Date(data.time).toLocaleString([], {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      timeZoneName: 'short',
+    });
+    timeElement.innerText = `[${localTime}]`;
 
     // Username and message in the same line (for received message)
     const userMessage = document.createElement('div');
