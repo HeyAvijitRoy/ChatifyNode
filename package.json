@@ -1,0 +1,17 @@
+{
+  "name": "prochat",
+  "version": "1.0.1",
+  "description": "Pro Chat",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Avijit Roy",
+  "license": "ISC",
+  "keywords": [],
+  "dependencies": {
+    "express": "^4.21.1",
+    "express-session": "^1.18.1",
+    "socket.io": "^4.8.0"
+  }
+}

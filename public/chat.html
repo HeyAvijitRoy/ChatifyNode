@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Chat App</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div id="chat-container">
+        <div id="chat">
+            <ul id="messages"></ul>
+            <form id="form" action="">
+                <input id="input" autocomplete="off" placeholder="Type a message" /><button>Send</button>
+            </form>
+            <button id="endChatButton">End Chat</button>
+        </div>
+    </div>
+
+    <script>
+        var socket = io();
+        var form = document.getElementById('form');
+        var input = document.getElementById('input');
+        var messages = document.getElementById('messages');
+        var endChatButton = document.getElementById('endChatButton');
+        var username = localStorage.getItem('username');
+
+        // Emit the username to the server
+        if (username) {
+            socket.emit('set username', username);
+        }
+
+        // Handle chat form submission
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            if (input.value.trim()) {
+                socket.emit('chat message', { user: username, message: input.value });
+                input.value = '';  // Clear input field after sending message
+                input.focus();     // Refocus the input after sending
+            }
+        });
+
+        // End chat button click handler
+        endChatButton.addEventListener('click', function () {
+            socket.emit('end chat');
+            localStorage.removeItem('username');
+            window.location.href = '/';
+        });
+
+        // Display incoming chat messages
+        socket.on('chat message', function (msg) {
+            // Check if msg is indeed an object and has user, message, and timestamp properties
+            if (typeof msg === 'object' && msg !== null && msg.hasOwnProperty('user') && msg.hasOwnProperty('message') && msg.hasOwnProperty('timestamp')) {
+                var item = document.createElement('li');
+                var messageContent = document.createElement('div');
+                var timestamp = document.createElement('div');
+
+                messageContent.innerHTML = `<strong style="color: #4a90e2;">${msg.user}</strong>: ${msg.message}`;
+                timestamp.textContent = `[${msg.timestamp}]`;
+                timestamp.classList.add('timestamp');
+
+                item.appendChild(timestamp);
+                item.appendChild(messageContent);
+
+                // Style based on whether it's the current user's message or others
+                if (msg.user === username) {
+                    item.classList.add('message-right');
+                    item.style.alignSelf = 'flex-end';
+                } else {
+                    item.classList.add('message-left');
+                    item.style.alignSelf = 'flex-start';
+                }
+                messages.appendChild(item);
+                messages.scrollTop = messages.scrollHeight;  // Auto-scroll to the bottom
+            }
+        });
+
+        // Handle end chat event
+        socket.on('end chat', function (msg) {
+            alert(msg);
+            localStorage.removeItem('username');
+            window.location.href = '/';
+        });
+    </script>
+</body>
+</html>

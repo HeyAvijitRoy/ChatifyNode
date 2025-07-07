@@ -1,0 +1,627 @@
+/* public/style.css */
+
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set font and background */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f7fa;
+}
+
+/* Center content vertically and horizontally */
+.login-page,
+.chat-page {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Add padding to chat and login pages */
+.chat-page,
+.login-page {
+  padding: 20px 0;
+}
+
+/* Style the login form */
+.form {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  outline: none;
+  transition: border 0.3s;
+  font-size: 16px; /* Prevent zoom on mobile */
+}
+
+.form input:focus {
+  border-color: #007bff;
+}
+
+.form button {
+  width: 100%;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 25px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.form button:hover {
+  background-color: #0056b3;
+}
+
+/* Chat page styles */
+.chat-page {
+  flex-direction: column;
+}
+
+/* Header styling */
+header {
+  width: 100%;
+  max-width: 800px;
+  padding: 10px 20px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center;
+}
+
+header h2 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px; /* Add margin to separate from buttons */
+}
+
+.header-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px; /* Add margin to separate from notifications */
+}
+
+.header-buttons button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 20px;
+  background-color: #28a745; /* Default to green for 'Leave Chat' */
+  color: #fff;
+  cursor: pointer;
+}
+
+.header-buttons #endChat {
+  background-color: #dc3545; /* Red for 'End Chat' */
+}
+
+.header-buttons button:hover {
+  opacity: 0.9;
+}
+
+/* Header Notifications */
+.header-notifications {
+  margin-top: 10px;
+}
+
+.header-notifications button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 20px;
+  background-color: #6c757d; /* Gray for toggle */
+  color: #fff;
+  cursor: pointer;
+}
+
+.header-notifications button:hover {
+  opacity: 0.9;
+}
+
+/* Notification Toggle Button - Enabled State */
+#notificationToggle.enabled {
+  background-color: #28a745; /* Green when enabled */
+}
+
+/* Online Users List */
+.online-users {
+  width: 100%;
+  max-width: 800px;
+  background: #fff;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.online-users h3 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.user-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.user-item {
+  background-color: #007bff;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 14px;
+}
+
+/* Chat box styling */
+.chat-box {
+  width: 100%;
+  max-width: 800px;
+  flex: 1;
+  background: #fff;
+  overflow-y: auto;
+  padding: 20px;
+  margin-bottom: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Message container */
+.chat-box .message {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+/* Sent messages aligned to the right */
+.chat-box .message.sent {
+  align-items: flex-end;
+}
+
+/* Received messages aligned to the left */
+.chat-box .message.received {
+  align-items: flex-start;
+}
+
+/* Message bubble */
+.chat-box .message .text {
+  max-width: 70%;
+  padding: 12px 15px;
+  border-radius: 20px;
+  background: #e9ecef;
+  position: relative;
+}
+
+.chat-box .message.sent .text {
+  background: #f1f0f0;
+  color: #333;
+}
+
+.chat-box .message.received .text {
+  background: #f1f0f0;
+  color: #333;
+}
+
+.chat-box .message .text::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 0;
+  height: 0;
+}
+
+.chat-box .message.sent .text::after {
+  right: -10px;
+  border-left: 10px solid #f1f0f0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  transform: translateY(-50%);
+}
+
+.chat-box .message.received .text::after {
+  left: -10px;
+  border-right: 10px solid #f1f0f0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  transform: translateY(-50%);
+}
+
+/* Time stamp */
+.chat-box .message .time-stamp {
+  font-size: 0.8em;
+  color: #888;
+  margin-bottom: 5px;
+}
+
+/* Username (for received messages) */
+.chat-box .message .username {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+/* Message content */
+.chat-box .message .message-content {
+  word-wrap: break-word;
+}
+
+/* Read Receipts Styling */
+.read-receipts {
+  font-size: 0.7em;
+  color: #888;
+  margin-top: 2px;
+  text-align: left;
+}
+
+/* Info messages */
+.info {
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* Message input form */
+#messageForm {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  position: relative;
+}
+
+#messageInput {
+  flex: 1;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  outline: none;
+  font-size: 16px; /* Prevent zoom on mobile */
+}
+
+#messageForm button[type="submit"] {
+  padding: 12px 15px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 25px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+#messageForm button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Emoji button */
+#emojiButton {
+  background: none;
+  border: none;
+  font-size: 24px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+#emojiButton:focus {
+  outline: none;
+}
+
+/* Emoji picker */
+.emoji-popup {
+  position: absolute;
+  bottom: 60px; /* Adjust according to your layout */
+  left: 20px; /* Adjust according to your layout */
+  width: 300px;
+  max-height: 200px; /* To show 5-6 rows */
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow-y: scroll;
+  display: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.emoji-popup.show {
+  display: block;
+}
+
+.emoji-popup table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.emoji-popup td {
+  padding: 8px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.emoji-popup td:hover {
+  background-color: #f1f1f1;
+}
+
+/* Typing indicator */
+.typing-indicator {
+  height: 20px;
+  font-size: 0.9em;
+  color: #888;
+  margin-left: 20px;
+  margin-bottom: 5px;
+}
+
+/* Reaction Button */
+.reaction-button {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #555;
+  position: absolute;
+  right: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.reaction-button:hover {
+  color: #000;
+}
+
+/* Reactions Container for Sent Messages */
+.reactions-container-sent {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  justify-content: flex-start; /* Align reactions to the left */
+}
+
+/* Reactions Container for Received Messages */
+.reactions-container-received {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  justify-content: flex-end; /* Align reactions to the right */
+}
+
+/* Reactions Display */
+.reactions-container .reaction {
+  display: inline-block;
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 2px 6px;
+  border-radius: 12px;
+  margin-left: 5px;
+  font-size: 14px;
+}
+
+/* Reaction Picker */
+.reaction-picker {
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 5px;
+  display: flex;
+  gap: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.reaction-option {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.reaction-option:hover {
+  transform: scale(1.2);
+}
+
+/* Online Users Styles */
+.online-users {
+  width: 100%;
+  max-width: 800px;
+  background: #fff;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.online-users h3 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.user-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.user-item {
+  background-color: #007bff;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 14px;
+}
+
+/* Modal Popup Styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none; /* Hidden by default */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 80%;
+  max-width: 400px;
+}
+
+.modal-content h3 {
+  margin-bottom: 20px;
+}
+
+.modal-content button {
+  margin: 5px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.modal-content .confirm-button {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.modal-content .cancel-button {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  header,
+  .notification-container,
+  .online-users,
+  .chat-box,
+  #messageForm {
+    max-width: 100%;
+  }
+
+  .header-buttons {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .user-list {
+    justify-content: center;
+  }
+
+  /* Adjust reaction picker for smaller screens */
+  .reaction-picker {
+    width: 150px;
+  }
+
+  /* Adjust reaction button position for smaller screens */
+  .reaction-button {
+    right: -25px;
+  }
+}
+
+/* Add these styles to your existing style.css */
+
+/* Call Controls Styling */
+.call-controls {
+  width: 100%;
+  max-width: 800px;
+  padding: 10px 20px;
+  margin: 10px 0;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.call-controls button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: #17a2b8; /* Teal color for call buttons */
+  color: #fff;
+  cursor: pointer;
+}
+
+.call-controls button:hover {
+  background-color: #138496;
+}
+
+/* Audio Elements (Hidden) */
+audio {
+  display: none;
+}
+
+/* Call Notification Modal Styles */
+#callModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none; /* Hidden by default */
+  justify-content: center;
+  align-items: center;
+  z-index: 2000; /* Ensure it's above other elements */
+}
+
+#callModal .modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 80%;
+  max-width: 400px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+#callModal .modal-content h3 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+#callModal .modal-content button {
+  margin: 5px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+#callModal .modal-content .confirm-button {
+  background-color: #28a745; /* Green for Accept */
+  color: #fff;
+}
+
+#callModal .modal-content .confirm-button:hover {
+  background-color: #218838;
+}
+
+#callModal .modal-content .cancel-button {
+  background-color: #dc3545; /* Red for Decline */
+  color: #fff;
+}
+
+#callModal .modal-content .cancel-button:hover {
+  background-color: #c82333;
+}

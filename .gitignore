@@ -1,0 +1,36 @@
+# Node.js dependencies
+node_modules/
+
+# Environment variables (if you add one later)
+.env
+
+# Mac OS system files (leftover from your MacBook)
+.DS_Store
+._*
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Optional: Ignore your IDE/editor settings
+.vscode/
+.idea/
+
+# Google Cloud SDK temporary/ignore files
+.gcloudignore
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Optional: Ignore YAML deployment configs if you don’t want them in git
+# (Uncomment if needed)
+# app.yaml
+# ._app.yaml
+# ._package.json
+# ._app.js
+

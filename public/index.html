@@ -1,0 +1,233 @@
+<!-- public/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Instant Chat App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Include Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap" rel="stylesheet">
+  
+  <!-- Favicon Links -->
+  <link rel="icon" href="/favicon.png" id="favicon" type="image/png">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Login Page -->
+  <div id="loginPage" class="login-page">
+    <div class="form">
+      <h2>Enter Display Name</h2>
+      <input id="usernameInput" type="text" maxlength="14" autocomplete="off" placeholder="Display Name"/>
+      <button id="joinChat">Join Chat</button>
+    </div>
+  </div>
+
+  <!-- Chat Page -->
+  <div id="chatPage" class="chat-page" style="display:none;">
+    <!-- Header -->
+    <header>
+      <h2>Welcome, <span id="displayName"></span></h2>
+      <div class="header-buttons">
+        <button id="leaveChat">Leave Chat</button>
+        <button id="endChat">End Chat</button>
+      </div>
+      <!-- Second row inside header for notification toggle -->
+      <div class="header-notifications">
+        <button id="notificationToggle">Enable Audio Notifications</button>
+      </div>
+    </header>
+
+    <!-- Online Users List -->
+    <div id="onlineUsers" class="online-users">
+      <h3>Online Users</h3>
+      <div id="userList" class="user-list"></div>
+    </div>
+
+    <!-- Chat Box -->
+    <div id="chatBox" class="chat-box"></div>
+
+    <!-- Typing Indicator -->
+    <div id="typingIndicator" class="typing-indicator"></div>
+
+    <!-- Message Input Form -->
+    <form id="messageForm">
+      <!-- Emoji Button -->
+      <button type="button" id="emojiButton" class="emoji-button">😀</button>
+
+      <!-- Message Input -->
+      <input id="messageInput" autocomplete="off" placeholder="Type a message"/>
+
+      <!-- Send Button -->
+      <button type="submit">Send</button>
+
+      <!-- Emoji Picker -->
+      <div id="emoji-popup" class="emoji-popup">
+        <table>
+          <tbody>
+            <!-- Happy/Positive Emotions -->
+            <tr>
+                <td>😀</td>
+                <td>😂</td>
+                <td>😅</td>
+                <td>😊</td>
+                <td>😍</td>
+                <td>😘</td>
+                <td>🥳</td>
+            </tr>
+            <!-- Cool/Confident Emotions -->
+            <tr>
+                <td>😎</td>
+                <td>😏</td>
+                <td>😁</td>
+                <td>🕶️</td>
+                <td>😆</td>
+                <td>😋</td>
+                <td>🤩</td>
+            </tr>
+            <!-- Sad/Disappointed Emotions -->
+            <tr>
+                <td>😢</td>
+                <td>😞</td>
+                <td>😔</td>
+                <td>😣</td>
+                <td>😩</td>
+                <td>😫</td>
+                <td>😭</td>
+            </tr>
+            <!-- Angry/Frustrated Emotions -->
+            <tr>
+                <td>😡</td>
+                <td>😠</td>
+                <td>🤬</td>
+                <td>😤</td>
+                <td>🙄</td>
+                <td>😒</td>
+                <td>👿</td>
+            </tr>
+            <!-- Surprised/Shocked Emotions -->
+            <tr>
+                <td>😮</td>
+                <td>😲</td>
+                <td>😳</td>
+                <td>😱</td>
+                <td>🤯</td>
+                <td>🤔</td>
+                <td>🧐</td>
+            </tr>
+            <!-- Funny/Mischievous Emotions -->
+            <tr>
+                <td>🤪</td>
+                <td>😜</td>
+                <td>🤡</td>
+                <td>👻</td>
+                <td>🤭</td>
+                <td>🤫</td>
+                <td>😈</td>
+            </tr>
+            <!-- Miscellaneous Emotions -->
+            <tr>
+                <td>👍</td>
+                <td>👏</td>
+                <td>💔</td>
+                <td>💯</td>
+                <td>🙌</td>
+                <td>✌️</td>
+                <td>👌</td>
+            </tr>
+            <!-- Additional Hand and Palm Emojis -->
+            <tr>
+                <td>🤲</td>
+                <td>🙏</td>
+                <td>👋</td>
+                <td>🤚</td>
+                <td>✋</td> 
+                <td>🖐️</td>
+                <td>🤝</td> 
+            </tr>
+            <tr>
+                <td>🤟</td> 
+                <td>✌️</td> 
+                <td>👌</td> 
+                <td>🖖</td> 
+                <td>👊</td> 
+                <td>🤜</td> 
+                <td>🤛</td> 
+            </tr>
+            <!-- Love/Affectionate Emotions -->
+            <tr>
+                <td>😍</td>
+                <td>😘</td>
+                <td>🥰</td>
+                <td>😻</td>
+                <td>💖</td>
+                <td>💕</td>
+                <td>💞</td>
+            </tr>
+            <tr>
+                <td>❤️</td>
+                <td>💙</td>
+                <td>💚</td>
+                <td>💛</td>
+                <td>💜</td>
+                <td>🧡</td>
+                <td>💗</td>
+            </tr>
+            <tr>
+                <td>💓</td>
+                <td>💘</td>
+                <td>💝</td>
+                <td>💟</td>
+                <td>❣️</td>
+                <td>💌</td>
+                <td>❤️‍🔥</td>
+            </tr>
+            <tr>
+                <td>❤️‍🩹</td>
+                <td>💑</td>
+                <td>👩‍❤️‍👨</td>
+                <td>👨‍❤️‍👨</td>
+                <td>👩‍❤️‍👩</td>
+                <td>💏</td>
+                <td>🤍</td>
+            </tr>
+            <!-- Religious/Spiritual Emblems -->
+            <tr>
+                <td>🧘‍♂️</td>
+                <td>🧘‍♀️</td>
+                <td>🕉️</td>
+                <td>⚜️️</td>
+                <td>🔱</td>
+                <td>🛐</td>
+                <td>🕊️</td>
+            </tr>
+            <tr>
+                <td>🛕</td>
+                <td>🪔</td>
+                <td>🕯️</td>
+                <td>🥥</td>
+                <td>🌺</td> 
+                <td>🌸</td> 
+                <td>💐</td> 
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </form>
+  </div>
+
+  <!-- Modal Popup -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <h3 id="modalMessage">Are you sure?</h3>
+      <button id="modalConfirm" class="confirm-button">Yes</button>
+      <button id="modalCancel" class="cancel-button">No</button>
+    </div>
+  </div>
+
+  <!-- Include Socket.io and Client-side JavaScript -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.js"></script>
+</body>
+</html>
