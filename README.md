@@ -22,12 +22,6 @@
 </a>
 
 
-<br/><br/>
-
-<!--
-Replace with your own screenshot URL (hosted on imgur or your domain):
-<img src="https://i.imgur.com/YOUR_SCREENSHOT.png" alt="Modern Chat App Screenshot" width="80%" style="border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,0.08);"/>
--->
 
 </div>
 
@@ -57,7 +51,7 @@ A real-time chat application built with **Node.js**, **Express**, and **Socket.I
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
+    git clone https://github.com/HeyAvijitRoy/ChatifyNode.git
     ```
 
 2.  **Navigate to the project directory:**
